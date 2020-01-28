@@ -30,7 +30,7 @@ assert(subtract([5, 7, 9], [4, 5, 6]) == [1, 2, 3])
 func vector_sum(_ vectors: [Vector]) -> Vector {
     assert(vectors.count > 0, "no vectors provided")
     let vectorLength = vectors.first?.count ?? 0
-    //let fiveZs = Array(repeating: "Z", count: vectorLength)
+    
     var result:Vector = Array(repeating: 0, count: vectorLength)
     //assert(v.count == w.count, "vectors must be the same length")
     for vec in vectors {

@@ -10,6 +10,8 @@
  
  */
 
+import Foundation //sqrt
+
 /*
  Implementing methods as Array extensions
  */

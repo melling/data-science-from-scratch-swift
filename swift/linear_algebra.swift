@@ -52,6 +52,43 @@ func scalar_multiply(_ c:Float, _ v:Vector) -> Vector {
 
 assert(scalar_multiply(2, [1, 2, 3]) == [2, 4, 6])
 
+func vector_mean(_ vectors:[Vector]) -> Vector {
+    let n:Float = Float(vectors.count)
+    return scalar_multiply(Float(1/n), vector_sum(vectors))
+}
+vector_mean([[1,2], [3,4], [5,6]])
+
+assert(vector_mean([[1,2], [3,4], [5,6]]) == [3,4])
+
+// pg 58
+
+func dot(_ v:Vector, _ w:Vector) -> Float {
+    assert(v.count == w.count, "vectors must be the same length")
+    var total:Float = 0
+    for (v_i, w_i) in zip(v, w) {
+        total += v_i * w_i
+    }
+    return total
+}
+
+assert(dot([1, 2, 3], [4, 5, 6]) == 32)
+
+func sum_of_squares(_ v:Vector) -> Float {dot(v, v)}
+
+assert(sum_of_squares([1, 2, 3]) == 14) // 1*1 + 2*2 + 3*3
+
+func magnitude(_ v:Vector) -> Float {sqrt(sum_of_squares(v))}
+
+assert(magnitude([3, 4]) == 5)
+
+// pg 59
+
+func squared_distance(_ v:Vector, _ w:Vector) -> Float {sum_of_squares(subtract(v, w))}
+
+func distance(_ v:Vector, _ w:Vector) -> Float {magnitude(subtract(v, w))}
+
+
+
 // pg 60
 
 let A:Matrix = [[1, 2, 3],

@@ -1,3 +1,5 @@
+import Foundation //sqrt
+
 typealias Vector = [Float]
 typealias Matrix = [[Float]]
 

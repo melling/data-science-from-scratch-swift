@@ -1,3 +1,13 @@
+/*
+ Data Science from Scratch
+ Joel Grus
+ Chapter 4: Linear Algebra
+ Implemented in Swift 5.x
+ 
+ - Sticking with snake_case variable names for consistency
+ 
+ */
+
 import Foundation //sqrt
 
 typealias Vector = [Float]

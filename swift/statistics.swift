@@ -1,7 +1,7 @@
 /*
  Data Science from Scratch
  Joel Grus
- Chapter 5
+ Chapter 5: Statistics
  Implemented in Swift 5.x
  
  - Sticking with snake_case variable names for consistency

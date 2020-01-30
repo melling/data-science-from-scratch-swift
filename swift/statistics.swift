@@ -101,10 +101,24 @@ extension Array where Element: FloatingPoint  {
         return x
     }
     
-    func covariance(ys:[Element]) -> Float {
+    func covariance(_ ys:[Element]) -> Float {
         assert(self.count == ys.count, "xs and ys must have same number of elements")
         let n:Float = Float(self.count - 1)
         return dot(self.de_mean() as! Vector, ys.de_mean() as! Vector) /  n
+    }
+ 
+    func correlation(_ ys:[Element]) -> Float {
+        let corr:Float
+        
+        let stdev_x = self.standard_deviation()
+        let stdev_y = ys.standard_deviation()
+        
+        if stdev_x > 0 && stdev_y > 0 {
+            corr = self.covariance(ys) / stdev_x / stdev_y
+        } else {
+            corr = 0
+        }
+        return corr
     }
     
 }
@@ -164,8 +178,15 @@ let daily_minutes:[Float] = [1,68.77,51.25,52.08,38.36,44.54,57.13,51.4,41.42,31
 
 // daily_hours = [dm / 60 for dm in daily_minutes]
 let daily_hours = daily_minutes.map {$0 / 60}
-let cov1 = num_friends.covariance(ys: daily_minutes)
+let cov1 = num_friends.covariance(daily_minutes)
 assert(22.42 < cov1 && cov1 < 22.43)
 //assert 22.42 / 60 < covariance(num_friends, daily_hours) < 22.43 / 60
-let cov2 = num_friends.covariance(ys: daily_hours)
+let cov2 = num_friends.covariance(daily_hours)
 assert(22.42 / 60 < cov2 && cov2 < 22.43 / 60)
+
+// 
+let corr1 = num_friends.correlation(daily_minutes)
+let corr2 = num_friends.correlation(daily_hours)
+
+assert(0.24 < corr1 && corr1 < 0.25)
+assert(0.24 < corr2 && corr2 < 0.25)

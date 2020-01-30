@@ -24,7 +24,7 @@ Reimplementing in Swift because it's a great modern language.  Any language will
     - Which is better variance(xs) vs xs.variance?
  - Used FloatingPoint protocol so I had to force type to float by adding .0 in some instances.
  
- - Replace Python's list comprehensions with Swift's map
+ - [Often] Replace Python's list comprehensions with Swift's map
  
  - Type issues: Tried to use FloatingPoint protocol to make functions more generic.  Had problems casting Element results to Float.
  - Needed two linear algebra functions from Chapter 4: dot(), sum_of_squares().  I simply copied them into the statistics.swift file.

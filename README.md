@@ -7,6 +7,8 @@ Book: https://www.amazon.com/Data-Science-Scratch-Principles-Python/dp/149204113
 
 Book Python Source: https://github.com/joelgrus/data-science-from-scratch
 
+--
+
 [Chapter 4: Linear Algebra](swift/linear_algebra.swift) | [Chapter 5: Statistics](swift/statistics.swift)
 
 

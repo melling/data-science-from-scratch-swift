@@ -32,7 +32,7 @@ Reimplementing in Swift because it's a great modern language.  Any language will
  
  Need a plotting library.  Histograms
  
- Swift equivalent Python Counter class on StackOverFlow
+ Swift equivalent Python Counter (p26,66) class on StackOverFlow
  
  Next I'll continue to work through the book.  Not sure if I'll do it in order.
  

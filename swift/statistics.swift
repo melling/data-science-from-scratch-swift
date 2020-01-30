@@ -13,6 +13,27 @@
 import Foundation //sqrt
 
 /*
+ Linear Algebra functions from Chapter 4
+ - dot()
+ - sum_of_squares()
+ */
+
+typealias Vector = [Float]
+
+func dot(_ v:Vector, _ w:Vector) -> Float {
+    assert(v.count == w.count, "vectors must be the same length")
+    var total:Float = 0
+    for (v_i, w_i) in zip(v, w) {
+        total += v_i * w_i
+    }
+    return total
+}
+
+
+func sum_of_squares(_ v:Vector) -> Float {dot(v, v)}
+
+
+/*
  Implementing methods as Array extensions
  */
 extension Array where Element: FloatingPoint  {

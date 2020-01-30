@@ -65,6 +65,48 @@ extension Array where Element: FloatingPoint  {
         let p_index:Int = Int(p_index0)
         return self.sorted()[p_index]
     }
+ 
+ // Need Counter - pg 66
+    func mode() -> [Element] {
+        
+        return []
+    }
+    
+    func data_range() -> Element {
+        guard let max = self.max(), let min = self.min() else {return 0}
+        return max - min
+    }
+    
+    private func de_mean() -> [Element] {
+        let x_bar = self.mean
+        let de = self.map {$0 - x_bar}
+        return de
+    }
+    
+    func variance() -> Float {
+        assert(self.count >= 2, "variance requires at least 2 elements")
+        
+        let n:Float = Float(self.count)
+        let deviations = self.de_mean()
+        return sum_of_squares(deviations as! Vector) / (n - 1)
+    }
+    
+    func standard_deviation() -> Float {
+        sqrt(self.variance())
+    }
+    
+    // FIXME: Problem mixing Float and Element
+    func interquartile() -> Element {
+        let x: Element = (self.quantile(0.75) - self.quantile(0.25))
+        return x
+    }
+    
+    func covariance(ys:[Element]) -> Float {
+        assert(self.count == ys.count, "xs and ys must have same number of elements")
+        let n:Float = Float(self.count - 1)
+        return dot(self.de_mean() as! Vector, ys.de_mean() as! Vector) /  n
+    }
+    
 }
 
 

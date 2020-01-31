@@ -70,6 +70,7 @@ let even_squares = (0..<5).map {$0 * $0}.filter {$0 % 2 == 0}
 var square_dict:[Int:Int] = [:]
 (0..<5).forEach {square_dict[$0] = $0 * $0}
 
+let zeros = even_numbers.map {_ in 0}
 ```
 
  ### Simple implementation of Python's Counter (p26,66) class in Swift.

@@ -32,7 +32,42 @@ Reimplementing in Swift because it's a great modern language.  Any language will
  
  Need a plotting library.  Histograms
  
- Swift equivalent Python Counter (p26,66) class on StackOverFlow
+ Simple implementation of Python's Counter (p26,66) class in Swift.
+ 
+ ```swift
+ class Counter<T:Hashable> {
+    public var dict:[T:Int] = [:]
+    public let maxCount:Int
+    
+    init(_ xs:[T]) {
+        var max = 0
+        
+        for elem in xs {
+            if let n = dict[elem] {
+                dict[elem] = n + 1
+                if n + 1 > max {
+                    max = n + 1
+                }
+            } else {
+                dict[elem] = 1
+            }
+        }
+        
+        maxCount = max
+    }
+    
+    public func mode_values() -> [T] {
+        var xs:[T] = []
+        for (k,v) in dict {
+            if v == maxCount {
+                xs.append(k)
+            }
+        }
+        return xs
+    }
+}
+```
+ 
  
  Next I'll continue to work through the book.  Not sure if I'll do it in order.
  

@@ -23,16 +23,56 @@ Reimplementing in Swift because it's a great modern language.  Any language will
  - Implemented some functions as Array extensions in Chapter 5.
     - Which is better variance(xs) vs xs.variance?
  - Used FloatingPoint protocol so I had to force type to float by adding .0 in some instances.
- 
- - [Often] Replace Python's list comprehensions with Swift's map
- 
  - Type issues: Tried to use FloatingPoint protocol to make functions more generic.  Had problems casting Element results to Float.
  - Needed two linear algebra functions from Chapter 4: dot(), sum_of_squares().  I simply copied them into the statistics.swift file.
  - Also, copied the Vector type.
  
- Need a plotting library.  Histograms
+ Need a plotting library.  
  
- Simple implementation of Python's Counter (p26,66) class in Swift.
+ ### Python's List Comprehensions
+ 
+ Pyhon's List Comprehension are a nice succinct feature.  In Swift, you'll need to Replace them with a combination of map, filter, forEach, for, etc  I've rewritten some of the examples on page 30 in Swift:
+ 
+ #### Python
+ 
+ ```python
+even_numbers = [x for x in range(5) if x % 2 == 0]  # [0, 2, 4]
+squares      = [x * x for x in range(5)]            # [0, 1, 4, 9, 16]
+even_squares = [x * x for x in even_numbers]        # [0, 4, 16]
+
+
+assert even_numbers == [0, 2, 4]
+assert squares == [0, 1, 4, 9, 16]
+assert even_squares == [0, 4, 16]
+
+square_dict = {x: x * x for x in range(5)}  # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+square_set  = {x * x for x in [1, -1]}      # {1}
+
+
+assert square_dict == {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+assert square_set == {1}
+
+zeros = [0 for _ in even_numbers]      # has the same length as even_numbers
+
+
+assert zeros == [0, 0, 0]
+
+```
+
+ 
+#### Swift
+
+```swift
+let even_numbers = (0..<5).filter {$0 % 2 == 0}
+let squares = (0..<5).map {$0 * $0}
+let even_squares = (0..<5).map {$0 * $0}.filter {$0 % 2 == 0}
+
+var square_dict:[Int:Int] = [:]
+(0..<5).forEach {square_dict[$0] = $0 * $0}
+
+```
+
+ ### Simple implementation of Python's Counter (p26,66) class in Swift.
  
  ```swift
  class Counter<T:Hashable> {

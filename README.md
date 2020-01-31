@@ -26,8 +26,7 @@ Reimplementing in Swift because it's a great modern language.  Any language will
  - Type issues: Tried to use FloatingPoint protocol to make functions more generic.  Had problems casting Element results to Float.
  - Needed two linear algebra functions from Chapter 4: dot(), sum_of_squares().  I simply copied them into the statistics.swift file.
  - Also, copied the Vector type.
- 
- Need a plotting library.  
+ - Need a plotting library.  
  
  ### Python's List Comprehensions
  

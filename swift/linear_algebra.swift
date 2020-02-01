@@ -4,6 +4,8 @@
  Chapter 4: Linear Algebra
  Implemented in Swift 5.x
  
+Python: https://github.com/joelgrus/data-science-from-scratch/blob/master/scratch/linear_algebra.py
+
  - Sticking with snake_case variable names for consistency
  
  */

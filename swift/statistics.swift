@@ -3,7 +3,8 @@
  Joel Grus
  Chapter 5: Statistics
  Implemented in Swift 5.x
- 
+ Python: https://github.com/joelgrus/data-science-from-scratch/blob/master/scratch/statistics.py
+
  - Sticking with snake_case variable names for consistency
  - Implementing methods as Array extensions
  - Used FloatingPoint so I had to for type to float by adding .0 in some instances.

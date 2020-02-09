@@ -124,10 +124,7 @@ func shape(A:Matrix) -> (Int, Int) {
 
 // p60
 
-func get_row(A: Matrix, i: Int) -> Vector {
-    return A[i]
-}
-
+func get_row(A: Matrix, i: Int) -> Vector { A[i] }
 
 
 func get_column(A: Matrix, j: Int) -> Vector {

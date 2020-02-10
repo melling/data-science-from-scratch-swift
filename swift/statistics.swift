@@ -97,7 +97,7 @@ extension Array where Element: FloatingPoint  {
         self.count % 2 == 0 ? _medium_even : _medium_odd
     }
     
-    func quantile(p: Float) -> Element {
+    func quantile(_ p: Float) -> Element {
         let p_index0 = p * Float(self.count)  // p:Element doesn't work
         let p_index:Int = Int(p_index0)
         return self.sorted()[p_index]
@@ -193,10 +193,10 @@ assert([1.0, 9, 2, 10].median == (2.0 + 9)/2)
 
 print("\(num_friends.median)") // 6
 
-assert(num_friends.quantile(p: 0.10) == 1)
-assert(num_friends.quantile(p: 0.25) == 3)
-assert(num_friends.quantile(p: 0.75) == 9)
-assert(num_friends.quantile(p: 0.90) == 13)
+assert(num_friends.quantile(0.10) == 1)
+assert(num_friends.quantile(0.25) == 3)
+assert(num_friends.quantile(0.75) == 9)
+assert(num_friends.quantile(0.90) == 13)
 
 assert(Set(num_friends.mode()) == Set([1,6]))
 
@@ -226,7 +226,7 @@ assert(22.42 < cov1 && cov1 < 22.43)
 let cov2 = num_friends.covariance(daily_hours)
 assert(22.42 / 60 < cov2 && cov2 < 22.43 / 60)
 
-// 
+//
 let corr1 = num_friends.correlation(daily_minutes)
 let corr2 = num_friends.correlation(daily_hours)
 

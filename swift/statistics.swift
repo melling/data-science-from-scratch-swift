@@ -4,7 +4,7 @@
  Chapter 5: Statistics
  Implemented in Swift 5.x
  Python: https://github.com/joelgrus/data-science-from-scratch/blob/master/scratch/statistics.py
-
+ 
  - Sticking with snake_case variable names for consistency
  - Implementing methods as Array extensions
  - Used FloatingPoint so I had to for type to float by adding .0 in some instances.
@@ -69,32 +69,50 @@ class Counter<T:Hashable> {
     }
 }
 
+extension Sequence where Element: AdditiveArithmetic {
+        
+    func sum() -> Element {
+        reduce(.zero, +)
+    }
+    
+    //    func mean() -> Float {
+    //        self.sum() / Float(self.count)
+    //    }
+    //}
+    //
+    //extension Array where Element: AdditiveArithmetic  {
+    //    func mean() -> Float {
+    //         Float(self.sum()) / Float(self.count)
+    //     }
+}
 
 /*
  Implementing methods as Array extensions
+ AdditiveArithmetic
+ FloatingPoint
  */
 extension Array where Element: FloatingPoint  {
     
-    var sum: Element {
-        self.reduce(0, +)
+    //    var sum: Element {
+    //        self.reduce(0, +)
+    //    }
+    
+    func mean() -> Element {
+        self.sum() / Element(self.count)
     }
     
-    var mean: Element {
-        self.sum / Element(self.count)
-    }
-    
-    var _medium_odd: Element { //pg 65
+    func _medium_odd() -> Element { //pg 65
         self.sorted()[self.count / 2]
     }
     
-    var _medium_even: Element { //pg 65
+    func _medium_even() -> Element { //pg 65
         let sorted_xs = self.sorted()
         let hi_midpoint = self.count / 2
         return (sorted_xs[hi_midpoint - 1] + sorted_xs[hi_midpoint]) / 2
     }
     
-    var median: Element {
-        self.count % 2 == 0 ? _medium_even : _medium_odd
+    func median() -> Element {
+        self.count % 2 == 0 ? _medium_even() : _medium_odd()
     }
     
     func quantile(_ p: Float) -> Element {
@@ -102,15 +120,15 @@ extension Array where Element: FloatingPoint  {
         let p_index:Int = Int(p_index0)
         return self.sorted()[p_index]
     }
- 
- // Need Counter - pg 66
-     func mode() -> [Element] {
+    
+    // Need Counter - pg 66
+    func mode() -> [Element] {
         let ct = Counter(self)
         let modeList = ct.mode_values()
         //let counts = counter(self)
         return modeList
     }
- 
+    
     
     func data_range() -> Element {
         guard let max = self.max(), let min = self.min() else {return 0}
@@ -118,7 +136,7 @@ extension Array where Element: FloatingPoint  {
     }
     
     private func de_mean() -> [Element] {
-        let x_bar = self.mean
+        let x_bar = self.mean()
         let de = self.map {$0 - x_bar}
         return de
     }
@@ -146,7 +164,7 @@ extension Array where Element: FloatingPoint  {
         let n:Float = Float(self.count - 1)
         return dot(self.de_mean() as! Vector, ys.de_mean() as! Vector) /  n
     }
- 
+    
     func correlation(_ ys:[Element]) -> Float {
         let corr:Float
         
@@ -179,7 +197,7 @@ smallest_value = sorted_values[0]
 let second_smallest_value = sorted_values[1]
 let second_largest_value = sorted_values[sorted_values.count-2]
 
-num_friends.mean
+num_friends.mean()
 
 /*
  
@@ -188,10 +206,10 @@ num_friends.mean
  
  */
 
-assert([1.0, 10, 2, 9,5.0].median == 5)
-assert([1.0, 9, 2, 10].median == (2.0 + 9)/2)
+assert([1.0, 10, 2, 9,5.0].median() == 5)
+assert([1.0, 9, 2, 10].median() == (2.0 + 9)/2)
 
-print("\(num_friends.median)") // 6
+print("\(num_friends.median())") // 6
 
 assert(num_friends.quantile(0.10) == 1)
 assert(num_friends.quantile(0.25) == 3)
@@ -232,3 +250,6 @@ let corr2 = num_friends.correlation(daily_hours)
 
 assert(0.24 < corr1 && corr1 < 0.25)
 assert(0.24 < corr2 && corr2 < 0.25)
+
+let xs = [1,2,3]
+xs.sum()

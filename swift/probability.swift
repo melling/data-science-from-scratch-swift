@@ -4,6 +4,7 @@
  https://github.com/joelgrus/data-science-from-scratch/blob/master/scratch/probability.py
  */
 
+import Foundation //sqrt
 
 // 77
 

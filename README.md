@@ -10,7 +10,7 @@ Book Python Source: https://github.com/joelgrus/data-science-from-scratch
 
 --
 
-[Chapter 4: Linear Algebra](swift/linear_algebra.swift) | [Chapter 5: Statistics](swift/statistics.swift) | [Chapter 6: Probability](swift/probability.swift) | 
+[Chapter 4: Linear Algebra](swift/linear_algebra.swift) | [Chapter 5: Statistics](swift/statistics.swift) | [Chapter 6: Probability](swift/probability.swift) | [Chapter 7: Hypothesis and Inference](inference.swift) | 
 
 
 ## Overview

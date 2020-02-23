@@ -30,7 +30,7 @@ Reimplementing in Swift because it's a great modern language.  Any language will
  
  ### Python's List Comprehensions
  
- Pyhon's List Comprehension are a nice succinct feature.  In Swift, you'll need to Replace them with a combination of map, filter, forEach, for, etc  I've rewritten some of the examples on page 30 in Swift:
+ Pyhon's List Comprehension are a nice succinct feature.  In Swift, you'll need to replace them with a combination of map, filter, forEach, for, etc  I've rewritten some of the examples on page 30 in Swift:
  
  #### Python
  

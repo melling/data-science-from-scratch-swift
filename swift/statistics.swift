@@ -253,3 +253,46 @@ assert(0.24 < corr2 && corr2 < 0.25)
 
 let xs = [1,2,3]
 xs.sum()
+// p70
+
+func num_friends_good(outlier:Float) -> [Float] {
+    var friends:[Float] = []
+    let outlierIdx = num_friends.firstIndex(of: outlier)
+    
+    for (i, x) in num_friends.enumerated() {
+        if i != outlierIdx {
+            friends.append(x)
+        }
+    }
+    return friends
+    
+}
+
+
+func daily_minutes_good(outlier:Float) -> [Float] {
+    var minutes:[Float] = []
+    let outlierIdx = num_friends.firstIndex(of: outlier)
+    //let outlier = num_friends[100]
+    
+    for (i, x) in daily_minutes.enumerated() {
+        if i != outlierIdx {
+            minutes.append(x)
+        }
+    }
+    return minutes
+}
+
+
+let good_friends = num_friends_good(outlier: 100)
+let good_minutes = daily_minutes_good(outlier: 100)
+
+let daily_hours_good = good_minutes.map {$0 / 60.0}
+
+let good_friends_min_cor = good_friends.correlation(good_minutes)
+let good_friends_hr_cor = good_friends.correlation(daily_hours_good)
+
+assert(good_friends_min_cor > 0.57 && good_friends_min_cor < 0.58)
+assert(good_friends_hr_cor > 0.57 && good_friends_hr_cor < 0.58)
+
+
+

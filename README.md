@@ -15,7 +15,8 @@ Book Python Source: https://github.com/joelgrus/data-science-from-scratch
 - [Chapter 6: Probability](swift/probability.swift)
 - [Chapter 7: Hypothesis and Inference](swift/inference.swift)
 - [Chapter 8: Gradient Descent](swift/gradient_descent.swift)
-
+- 
+- [Chapter 14: Simple Linear Regression](simple_linear_regression.swift)
 
 ## Overview
 

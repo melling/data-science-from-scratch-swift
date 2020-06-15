@@ -16,7 +16,12 @@ Book Python Source: https://github.com/joelgrus/data-science-from-scratch
 - [Chapter 7: Hypothesis and Inference](swift/inference.swift)
 - [Chapter 8: Gradient Descent](swift/gradient_descent.swift)
 - 
-- [Chapter 14: Simple Linear Regression](simple_linear_regression.swift)
+- [Chapter 12: k-Nearest Neighbors](swift/k_nearest_neighbors.swift)
+- [Chapter 13: Naive Bayes](swift/naive_bayes.swift)
+- [Chapter 14: Simple Linear Regression](swift/simple_linear_regression.swift)
+- [Chapter 15: Multiple Regression](swift/multiple_regression.swift)
+- [Chapter 16: Logistic Regression](swift/logistic_regression.swift)
+
 
 ## Overview
 
